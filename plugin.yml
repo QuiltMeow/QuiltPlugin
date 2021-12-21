@@ -1,0 +1,403 @@
+name: QuiltPlugin
+main: ew.quilt.plugin.Main
+version: 0.022-EW-PRE-RELEASE-4
+author: EW_Quilt
+website: http://www.quilt.idv.tw/
+description: 棉被家族 MC 插件
+# depend: [ProtocolLib, Vault, AAC, Residence]
+depend: [ProtocolLib, Vault]
+softdepend: [MoneyDrop]
+commands:
+    quilt:
+        description: 喵嗚嗚指令集
+        aliases: [qlt, qp]
+    attribute:
+        description: 物品數值修改指令集
+        aliases: [attr]
+    trash:
+        description: 垃圾桶指令
+        aliases: [mt]
+    ping:
+        description: 取得網路延遲指令
+        aliases: [realping]
+    lore:
+        description: Lore 修改指令集
+    sign:
+        description: 告示牌修改指令集
+    adminchat:
+        description: 管理員聊天頻道
+        aliases: [a]
+    opchat:
+        description: OP 聊天頻道
+        aliases: [oa]
+    poop:
+        description: 對玩家丟屎指令
+    url:
+        description: 從網路下載檔案指令
+    random:
+        description: 產生隨機數字指令
+        aliases: [rand]
+    emo:
+        description: 自殺指令
+    uuid:
+        description: 查詢玩家 UUID 指令
+    head:
+        description: 頭顱總管 玩家頭顱指令集
+    ip:
+        description: IP 查詢指令集
+    about:
+        description: 顯示伺服器資訊
+        aliases: [ab]
+    enchant:
+        description: 物品附魔指令集
+    dc:
+        description: 玩家斷線指令
+    multilinechat:
+        description: 多行聊天訊息指定集
+        aliases: [mlc]
+    maploaddetector:
+        description: 查詢目前玩家跑圖狀況
+        aliases: [mld]
+    helpadmin:
+        description: 求助管理員指令
+        aliases: [ha]
+    tiplinechat:
+        description: 額外訊息指令集
+        aliases: [tlc]
+    tiplinechatbuilder:
+        description: 額外訊息建構指令集
+        aliases: [tlcb]
+    qjs:
+        description: JS 腳本執行指令集
+    qicc:
+        description: 內部聊天指令
+    qicms:
+        description: 內部訊息發送指令
+    qicpir:
+        description: 內部指令回送
+    allpotioneffect:
+        description: 套用所有藥水效果指令
+        aliases: [ape]
+    doctor:
+        description: 差不多醫生
+    findid:
+        description: 道具 ID 查詢
+permissions:
+    quilt.reload:
+        description: /quilt reload 允許重載插件
+        default: op
+    quilt.message:
+        description: /quilt message 允許對玩家發送自訂訊息
+        default: op
+    quilt.broadcast:
+        description: /quilt broadcast 允許對所有玩家發送自訂公告
+        default: op
+    quilt.broadcast.prefix:
+        description: /quilt bcPrefix 允許對所有玩家發送帶前綴自訂公告
+        default: op
+    quilt.tnt:
+        description: /quilt tnt 允許生成飛天 TNT
+        default: op
+    quilt.sound:
+        description: /quilt sound 允許對玩家發送音效
+        default: op
+    quilt.sound.all:
+        description: /quilt soundAll 允許對所有玩家發送音效
+        default: op
+    quilt.effect:
+        description: /quilt effect 允許對玩家發送特效
+        default: op
+    quilt.effect.all:
+        description: /quilt effectAll 允許對所有玩家發送特效
+        default: op
+    quilt.wither.head:
+        description: /quilt witherHead 允許自身生成凋零怪頭顱實體
+        default: op
+    quilt.fire:
+        description: /quilt fire 允許使其他玩家著火
+        default: op
+    quilt.title:
+        description: /quilt title 允許對玩家發送標題
+        default: op
+    quilt.title.all:
+        description: /quilt titleAll 允許對所有玩家發送標題
+        default: op
+    quilt.explode:
+        description: /quilt explode 允許使目標玩家爆炸
+        default: op
+    quilt.head.all:
+        description: /quilt headAll 允許獲得線上所有玩家頭顱 
+        default: op
+    quilt.double.exp:
+        description: /quilt doubleExp 允許開啟經驗加倍活動 
+        default: op
+    quilt.double.money:
+        description: /quilt doubleMoney 允許開啟金錢加倍活動
+        default: op
+    quilt.double.exp.stop:
+        description: /quilt stopDoubleExp 允許強制停止經驗加倍活動
+        default: op
+    quilt.double.money.stop:
+        description: /quilt stopDoubleMoney 允許強制停止金錢加倍活動
+        default: op
+    quilt.snow:
+        description: /quilt snow 允許開啟伺服器下雪特效
+        default: op
+    quilt.snow.stop:
+        description: /quilt stopSnow 允許關閉伺服器下雪特效
+        default: op
+    quilt.nether.roof:
+        description: 允許玩家到達地獄頂端
+        default: op
+    quilt.potion:
+        description: /quilt potion 允許對玩家使用藥水效果
+        default: op
+    quilt.potion.all:
+        description: /quilt potionAll 允許對所有玩家使用藥水效果
+        default: op
+    quilt.xp:
+        description: /quilt xp 允許召喚經驗球
+        default: op
+    quilt.console:
+        description: /quilt console 允許使用服務端指令
+        default: op
+    quilt.keep.exp:
+        description: 允許玩家死亡後保留經驗值
+        default: op
+    quilt.launch:
+        description: /quilt launch 允許使玩家升天
+        default: op
+    quilt.fall:
+        description: /quilt fall 允許使玩家掉落
+        default: op
+    quilt.speed:
+        description: /quilt speed 允許修改玩家行走速度
+        default: op
+    quilt.system.info:
+        description: /quilt sysInfo 允許查詢系統執行狀況
+        default: op
+    quilt.command.use:
+        description: /quilt 指令使用權限
+        default: op
+    quilt.aac.use:
+        description: 允許查詢 /aac 資訊權限
+        default: op
+    quilt.fuck.ip:
+        description: /quilt fuckIP 允許由伺服器發出 Flood 封包
+        default: op
+    quilt.action.bar:
+        description: /quilt actionBar 允許對玩家發送動作條訊息
+        default: op
+    quilt.action.bar.all:
+        description: /quilt actionBarAll 允許對所有玩家發送動作條訊息
+        default: op
+    quilt.particle:
+        description: /quilt particle 允許對玩家產生粒子效果
+        default: op
+    quilt.particle.all:
+        description: /quilt particleAll 允許對所有玩家產生粒子效果
+        default: op
+    quilt.attribute.editor.use:
+        description: /attribute 允許修改物品數值屬性
+        default: op
+    quilt.ping:
+        description: /ping 允許查詢網路延遲
+        default: op
+    quilt.ping.other:
+        description: /ping 允許查詢其他玩家網路延遲
+        default: op
+    quilt.lore:
+        description: /lore 允許修改物品 Lore 資訊
+        default: op
+    quilt.lore.name:
+        description: /lore 允許修改物品名稱
+        default: op
+    quilt.lore.owner:
+        description: /lore 允許修改頭顱擁有者
+        default: op
+    quilt.lore.format.0:
+        description: /lore 允許使用樣式代碼 0
+        default: op
+    quilt.lore.format.1:
+        description: /lore 允許使用樣式代碼 1
+        default: op
+    quilt.lore.format.2:
+        description: /lore 允許使用樣式代碼 2
+        default: op
+    quilt.lore.format.3:
+        description: /lore 允許使用樣式代碼 3
+        default: op
+    quilt.lore.format.4:
+        description: /lore 允許使用樣式代碼 4
+        default: op
+    quilt.lore.format.5:
+        description: /lore 允許使用樣式代碼 5
+        default: op
+    quilt.lore.format.6:
+        description: /lore 允許使用樣式代碼 6
+        default: op
+    quilt.lore.format.7:
+        description: /lore 允許使用樣式代碼 7
+        default: op
+    quilt.lore.format.8:
+        description: /lore 允許使用樣式代碼 8
+        default: op
+    quilt.lore.format.9:
+        description: /lore 允許使用樣式代碼 9
+        default: op
+    quilt.lore.format.A:
+        description: /lore 允許使用樣式代碼 A
+        default: op
+    quilt.lore.format.B:
+        description: /lore 允許使用樣式代碼 B
+        default: op
+    quilt.lore.format.C:
+        description: /lore 允許使用樣式代碼 C
+        default: op
+    quilt.lore.format.D:
+        description: /lore 允許使用樣式代碼 D
+        default: op
+    quilt.lore.format.E:
+        description: /lore 允許使用樣式代碼 E
+        default: op
+    quilt.lore.format.F:
+        description: /lore 允許使用樣式代碼 F
+        default: op
+    quilt.lore.format.L:
+        description: /lore 允許使用樣式代碼 L
+        default: op
+    quilt.lore.format.N:
+        description: /lore 允許使用樣式代碼 N
+        default: op
+    quilt.lore.format.O:
+        description: /lore 允許使用樣式代碼 O
+        default: op
+    quilt.lore.format.K:
+        description: /lore 允許使用樣式代碼 K
+        default: op
+    quilt.lore.format.M:
+        description: /lore 允許使用樣式代碼 M
+        default: op
+    quilt.lore.format.R:
+        description: /lore 允許使用樣式代碼 R
+        default: op
+    quilt.lore.format:
+        description: /lore 樣式代碼使用權限
+        default: op
+    quilt.sign.use:
+        description: /sign 允許修改告示牌文字
+        default: op
+    quilt.message.bar:
+        description: /quilt messageBar 允許發送 BOSS 血條訊息
+        default: op
+    quilt.message.bar.all:
+        description: /quilt messageBarAll 允許對所有玩家發送 BOSS 血條訊息
+        default: op
+    quilt.clear:
+        description: /quilt clear 允許清除所有掉落物實體
+        default: op
+    quilt.kill.all:
+        description: /quilt killAll 允許清除所有怪物實體
+        default: op
+    quilt.mob.spawner.egg:
+        description: 允許使用生怪蛋變更生怪磚怪物
+        default: op
+    quilt.admin.chat:
+        description: 允許接收管理員頻道訊息
+        default: op
+    quilt.admin.chat.use:
+        description: /adminchat 允許發送管理員頻道訊息
+        default: op
+    quilt.world.enter:
+        description: 允許玩家進入管理員世界
+        default: op
+    quilt.url.download:
+        description: /url 允許從網路下載檔案到伺服器
+        default: op
+    quilt.runtime.command:
+        description: /quilt cmd 允許直接從伺服器執行後台指令
+        default: op
+    quilt.firework:
+        description: /quilt firework 允許施放隨機煙火效果
+        default: op
+    quilt.vip.player.join.effect:
+        description: VIP 登入遊戲特效
+        default: op
+    quilt.uuid:
+        description: /uuid 允許查詢玩家 UUID
+        default: op
+    quilt.special.head:
+        description: 頭顱總管 /head 允許獲得自身頭顱
+        default: op
+    quilt.special.head.other:
+        description: 頭顱總管 /head 允許獲得其他玩家頭顱
+        default: op
+    quilt.special.head.extra:
+        description: 頭顱總管 /head extra 允許獲得指定類型頭顱
+        default: op
+    quilt.special.head.give:
+        description: 頭顱總管 /head give 允許給予其他玩家頭顱
+        default: op
+    quilt.special.head.give.extra:
+        description: 頭顱總管 /head give ... extra 允許給予其他玩家指定類型頭顱
+        default: op
+    quilt.ip.list:
+        description: /ip list 允許列舉線上玩家 IP
+        default: op
+    quilt.ip.search:
+        description: /ip search 允許搜尋 IP 資訊
+        default: op
+    quilt.ip.find:
+        description: /ip find 允許查詢指定玩家 IP 位址
+        default: op
+    quilt.bypass.game.mode:
+        description: 允許玩家重新上線時保留創造模式
+        default: op
+    quilt.enchant.all:
+        description: /enchant 允許附魔指定道具所有屬性
+        default: op
+    quilt.enchant.god:
+        description: /enchant 允許對指定道具進行極限附魔
+        default: op
+    quilt.enchant.use:
+        description: /enchant 允許使用物品附魔指令集
+        default: op
+    quilt.ip.multi:
+        description: /ip multi 允許列舉所有線上分身玩家
+        default: op
+    quilt.clear.chat:
+        description: /quilt clearChat 允許清除所有聊天訊息
+        default: op
+    quilt.multi.line.chat:
+        description: /multiLineChat 允許使用多行聊天訊息
+        default: op
+    quilt.tp.protect.bypass:
+        description: 允許玩家免疫傳送保護效果
+        default: op
+    quilt.map.load.info:
+        description: /mapLoadDetector 允許查詢目前玩家跑圖狀況
+        default: op
+    quilt.map.load.check.bypass:
+        description: 允許玩家不受跑圖距離監控
+        default: op
+    quilt.residence.use.tp.unstuck:
+        description: /residence unstuck 允許使用傳出領地外指令
+        default: op
+    quilt.tip.line.chat:
+        description: /tipLineChat 允許使用額外訊息指令
+        default: op
+    quilt.tip.line.chat.builder:
+        description: /tipLineChatBuilder 允許使用額外訊息建構指令
+        default: op
+    quilt.js:
+        description: /qjs 允許使用 JS 腳本執行指令
+        default: op
+    quilt.command.player:
+        description: /quilt commandPlayer 允許指定其他玩家執行指令
+        default: op
+    quilt.funny.potion:
+        description: /allPotionEffect 允許同時套用所有藥水效果
+        default: op
+    quilt.test.permission:
+        description: 內部測試用權限
+        default: op
